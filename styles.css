@@ -1,0 +1,498 @@
+/* =========================================================
+   Alfabetiza Tech — hoja de estilos única
+   Usada por: index.html, register.html, login.html
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  /* paleta verde (marca) */
+  --verde-950:#123322;
+  --verde-800:#1c6b46;
+  --verde-600:#279b5b;
+  --verde-500:#2fae66;
+  --verde-200:#d3f0dd;
+  --verde-100:#eaf7ee;
+  --verde-50:#f5fbf6;
+
+  /* paleta ámbar (slide 4 / acentos alternos) */
+  --ambar-700:#a9700e;
+  --ambar-500:#c98a2e;
+  --ambar-200:#f0dcb3;
+  --ambar-100:#faf1e0;
+
+  /* neutros */
+  --texto-950:#16241c;
+  --texto-600:#5c6b62;
+  --texto-400:#8a978f;
+  --borde:#e3ece6;
+  --blanco:#ffffff;
+
+  --radio-pill:999px;
+  --radio-lg:22px;
+  --radio-md:14px;
+  --sombra-card:0 20px 45px -25px rgba(18,51,34,.35);
+
+  --fuente-titulo:'Poppins', 'Inter', sans-serif;
+  --fuente-texto:'Inter', sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  font-family:var(--fuente-texto);
+  color:var(--texto-950);
+  background:var(--verde-50);
+  -webkit-font-smoothing:antialiased;
+}
+
+img,svg{ display:block; max-width:100%; }
+
+a{ color:inherit; text-decoration:none; }
+
+button, input, select{ font-family:inherit; }
+
+.contenedor{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+/* ---------------------------------------------------------
+   Encabezado (compartido por las 3 páginas)
+   --------------------------------------------------------- */
+.site-header{
+  border-bottom:1px solid var(--borde);
+  background:var(--blanco);
+}
+
+.site-header .contenedor{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:76px;
+  max-width:10000px;
+  padding:0 clampclamp(24px, 9vw, 140px);/*centrar los elementos del banner*/
+}
+
+.logo{
+  font-family:var(--fuente-titulo);
+  font-weight:700;
+  font: size 0.1rem;
+  color:var(--verde-800);
+  letter-spacing:  spacing -0.01em;
+  transition:opacity .2s ease;
+}
+.logo:hover{ opacity:.75; }
+
+.nav-actions{/*boton de sesion como centrarlo*/
+ display: flex;
+  align-items:center;
+  gap:20px;
+}
+
+.link-plain{
+  font-size:.92rem;
+  font-weight:100;
+  color:var(--texto-950);
+}
+.link-plain:hover{ color:var(--verde-800); }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 24px;
+  border-radius:var(--radio-pill);
+  font-size:.92rem;
+  font-weight:600;
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+}
+.btn:active{ transform:scale(.97); }
+
+.btn-solid{
+  background:var(--verde-600);
+  color:var(--blanco);
+}
+.btn-solid:hover{ background:var(--verde-800); }
+
+.btn-outline{
+  background:transparent;
+  border-color:var(--verde-600);
+  color:var(--verde-800);
+}
+.btn-outline:hover{ background:var(--verde-100); }
+
+.btn-ghost{
+  background:var(--verde-100);
+  color:var(--texto-950);
+  border-color:var(--verde-100);
+}
+.btn-ghost:hover{ background:var(--verde-200); }
+
+/* ---------------------------------------------------------
+   Sección hero / carrusel (index.html)
+   --------------------------------------------------------- */
+.hero{
+  min-height:calc(100px - 100px);
+  display:flex;
+  align-items:center;
+  padding:90px 20px;/*para centrar el carrusel,(el recuadro)*/
+}
+
+.carousel{
+  max-width:960px;
+  width: 2000px;/*Ancho del carrusel*/
+  margin:0 auto;
+  position:relative;
+}
+
+/* radios que controlan el slide activo — sin JavaScript */
+.carousel-radio{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.carousel-card{
+  position: 200;
+  overflow:hidden;
+  background:var(--verde-100);
+  border:200px solid var(--verde-10000);
+  border-radius:32px;
+  box-shadow:var(--sombra-card);
+}
+
+/* manchas decorativas de fondo, cambian de tono según el slide activo */
+.blobs{ position:absolute; inset:0; z-index:0; }
+.blob{
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  filter:blur(70px);
+  background:var(--verde-500);
+  opacity:.35;
+  transition:background .2s ease;
+}
+.blob-a{ left:-60px; bottom:-90px; }
+.blob-b{ right:-40px; bottom:-110px; background:var(--verde-200); opacity:.6; }
+
+#slide4:checked ~ .carousel-card .blob-a,
+#slide4:checked ~ .carousel-card .blob-b{
+  background:var(--ambar-500);
+}
+
+.slide-track{
+  position:relative;
+  z-index:1;
+  min-height:460px;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:68px 80px 54px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .45s ease;
+}
+
+#slide1:checked ~ .carousel-card .slide-track #panel-1,
+#slide2:checked ~ .carousel-card .slide-track #panel-2,
+#slide3:checked ~ .carousel-card .slide-track #panel-3,
+#slide4:checked ~ .carousel-card .slide-track #panel-4{
+  opacity:1;
+  visibility:visible;
+  z-index:2;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 16px 7px 12px;
+  border-radius:var(--radio-pill);
+  background:var(--verde-200);
+  color:var(--verde-800);
+  font-size:.82rem;
+  font-weight:600;
+  margin-bottom:22px;
+}
+.badge svg{ width:15px; height:15px; }
+
+.slide--ambar .badge{
+  background:var(--ambar-200);
+  color:var(--ambar-700);
+}
+
+.slide-title{
+  font-family:var(--fuente-titulo);
+  font-size:2rem;
+  line-height:1.35;
+  font-weight:600;
+  color:var(--verde-950);
+  max-width:28ch;
+  margin:0 0 20px;
+}
+
+.slide--ambar .slide-title{ color:var(--texto-950); }
+
+.acento-verde{ color:var(--verde-600); }
+.acento-ambar{ color:var(--ambar-500); }
+
+.slide-text{
+  font-size:1.02rem;
+  line-height:1.6;
+  color:var(--texto-600);
+  max-width:42ch;
+  margin:0;
+}
+
+.slide-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:30px;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);/* ← las centra verticalmente en el recuadro */
+  width:44px;  /* ← ancho del círculo blanco */
+  height:44px;  /* ← tamaño del círculo blanco */
+  border-radius:50%;
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:3;
+  box-shadow:0 6px 16px -8px rgba(18,51,34,.3);
+  transition:background .2s ease;
+}
+/*botones de el carrusel*/
+.arrow:hover{ background:var(--verde-100); }
+.arrow-prev{ left:8px; } /* ← qué tanto sobresale la flecha izquierda del borde */
+.arrow-next{ right:8px; }/* ← qué tanto sobresale la flecha derecha del borde */
+.arrow svg{ width:18px; height:18px; }
+
+.dots{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:22px 0 26px;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:var(--radio-pill);
+  background:var(--verde-200);
+  cursor:pointer;
+  transition:width .3s ease, background .3s ease;
+}
+
+#slide1:checked ~ .dots label[for="slide1"],
+#slide2:checked ~ .dots label[for="slide2"],
+#slide3:checked ~ .dots label[for="slide3"]{
+  width:26px;
+  background:var(--verde-600);
+}
+#slide4:checked ~ .dots label[for="slide4"]{
+  width:26px;
+  background:var(--ambar-500);
+}
+
+/* ---------------------------------------------------------
+   Páginas de autenticación (register.html / login.html)
+   --------------------------------------------------------- */
+.auth-main{
+  display:flex;
+  justify-content:center;
+  padding:64px 20px 80px;
+}
+
+.auth-card{
+  width:100%;
+  max-width:420px;
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:24px;
+  padding:40px 36px 34px;
+  box-shadow:var(--sombra-card);
+}
+
+.auth-icon{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:var(--verde-200);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 16px;
+}
+.auth-icon svg{ width:26px; height:26px; color:var(--verde-800); }
+
+.auth-title{
+  font-family:var(--fuente-titulo);
+  font-weight:600;
+  font-size:1.3rem;
+  text-align:center;
+  color:var(--verde-950);
+  margin:0 0 30px;
+}
+
+.campo{
+  margin-bottom:18px;
+}
+
+.campo label{
+  display:block;
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--texto-600);
+  margin-bottom:7px;
+}
+
+.campo-control{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.campo-control svg{
+  position:absolute;
+  left:14px;
+  width:17px;
+  height:17px;
+  color:var(--texto-400);
+  pointer-events:none;
+}
+
+.campo-control input,
+.campo-control select{
+  width:100%;
+  padding:12px 14px 12px 40px;
+  border:1px solid var(--borde);
+  border-radius:12px;
+  font-size:.92rem;
+  color:var(--texto-950);
+  background:var(--blanco);
+  transition:border-color .2s ease, box-shadow .2s ease;
+  appearance:none;
+  -webkit-appearance:none;
+}
+
+.campo-control input::placeholder{ color:var(--texto-400); }
+
+.campo-control input:focus,
+.campo-control select:focus{
+  outline:none;
+  border-color:var(--verde-500);
+  box-shadow:0 0 0 3px var(--verde-100);
+}
+
+/* flecha del menú desplegable de cargo */
+.campo-control select{
+  padding-right:36px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%235c6b62' stroke-width='1.8'><path d='M5 7.5l5 5 5-5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:16px;
+  cursor:pointer;
+}
+
+.campo-ayuda{
+  font-size:.78rem;
+  color:var(--texto-400);
+  margin-top:6px;
+}
+
+.btn-enviar{
+  width:100%;
+  padding:13px;
+  margin-top:8px;
+  border:none;
+  border-radius:var(--radio-pill);
+  background:var(--verde-600);
+  color:var(--blanco);
+  font-size:.95rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:background .2s ease, transform .15s ease;
+}
+.btn-enviar:hover{ background:var(--verde-800); }
+.btn-enviar:active{ transform:scale(.98); }
+
+.auth-enlace{
+  display:block;
+  text-align:center;
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--verde-800);
+  margin-top:20px;
+}
+.auth-enlace:hover{ text-decoration:underline; }
+
+.auth-enlace-secundario{
+  display:block;
+  text-align:center;
+  font-size:.85rem;
+  color:var(--texto-600);
+  margin-top:14px;
+}
+.auth-enlace-secundario a{
+  color:var(--verde-800);
+  font-weight:600;
+}
+.auth-enlace-secundario a:hover{ text-decoration:underline; }
+
+/* ---------------------------------------------------------
+   Accesibilidad / foco de teclado
+   --------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+label.arrow:focus-visible,
+label.dot:focus-visible{
+  outline:2px solid var(--verde-600);
+  outline-offset:2px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{ transition:none !important; }
+}
+
+/* ---------------------------------------------------------
+   Responsivo
+   --------------------------------------------------------- */
+@media (max-width:640px){
+  .site-header .contenedor{ padding:0 20px; }
+  .hero{ min-height:auto; padding:36px 0 56px; }
+  .carousel{ padding:0 8px; }
+  .slide-track{ min-height:420px; }
+  .slide{ padding:52px 26px 36px; }
+  .slide-title{ font-size:1.35rem; }
+  .slide-text{ font-size:.95rem; }
+  .arrow{ width:36px; height:36px; }
+  .arrow-prev{ left:2px; }
+  .arrow-next{ right:2px; }
+  .slide-actions{ flex-direction:column; width:100%; }
+  .slide-actions .btn{ width:100%; }
+  .auth-card{ padding:30px 22px 26px; }
+}

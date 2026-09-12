@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfabetiza Tech — Inicio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="site-header">
+    <div class="contenedor">
+      <a href="index.html" class="logo">Alfabetiza Tech</a>
+      <nav class="nav-actions">
+        <a href="login.html" class="link-plain">Iniciar sesión</a>
+        <a href="register.html" class="btn btn-solid">Regístrate</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ CARRUSEL (100% CSS, sin JavaScript) ============ -->
+  <main class="hero">
+    <div class="contenedor">
+      <section class="carousel" aria-label="Presentación de Alfabetiza Tech">
+
+        <!-- radios ocultos: controlan qué slide se muestra -->
+        <input type="radio" name="slide" id="slide1" class="carousel-radio" checked>
+        <input type="radio" name="slide" id="slide2" class="carousel-radio">
+        <input type="radio" name="slide" id="slide3" class="carousel-radio">
+        <input type="radio" name="slide" id="slide4" class="carousel-radio">
+
+        <div class="carousel-card">
+          <div class="blobs"><span class="blob blob-a"></span><span class="blob blob-b"></span></div>
+
+          <div class="slide-track">
+
+            <!-- Slide 1 -->
+            <article class="slide" id="panel-1">
+              <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 0 1-8 0L7 4Z"/><path d="M5 4h2v3a3 3 0 0 1-3-3 1 1 0 0 1 1-3Z" opacity="0"/></svg>
+                Reto de las 80 horas
+              </span>
+              <h1 class="slide-title">La lectura y la escritura son el inicio de un <span class="acento-verde">gran camino</span></h1>
+              <p class="slide-text">Un programa integral de alfabetización diseñado para transformar vidas a través del aprendizaje. Cada hora cuenta hacia tu futuro más brillante.</p>
+              <div class="slide-actions">
+                <a href="register.html" class="btn btn-solid">Empezar ahora
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <label for="slide3" class="btn btn-outline">Saber más</label>
+              </div>
+              <label for="slide4" class="arrow arrow-prev" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+              <label for="slide2" class="arrow arrow-next" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="slide" id="panel-2">
+              <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 2c3 3 5 7 5 11a5 5 0 0 1-10 0c0-4 2-8 5-11Z"/><path d="M9 19c-2 1-3 2-3 3M15 19c2 1 3 2 3 3"/></svg>
+                Tu futuro empieza aquí
+              </span>
+              <h1 class="slide-title">No esperes más, cada día es una oportunidad para <span class="acento-verde">crecer y aprender</span></h1>
+              <p class="slide-text">Inscríbete en nuestro programa de 80 horas y transforma tu vida a través del aprendizaje.</p>
+              <label for="slide1" class="arrow arrow-prev" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+              <label for="slide3" class="arrow arrow-next" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="slide" id="panel-3">
+              <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9M12 19V5M20 19v-7"/></svg>
+                Seguimiento en tiempo real
+              </span>
+              <h1 class="slide-title">Monitorea tu progreso con <span class="acento-verde">total claridad</span></h1>
+              <p class="slide-text">Visualiza el avance de tus horas sociales con una tabla detallada, siempre actualizada.</p>
+              <label for="slide2" class="arrow arrow-prev" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+              <label for="slide4" class="arrow arrow-next" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+            </article>
+
+            <!-- Slide 4 (variante ámbar) -->
+            <article class="slide slide--ambar" id="panel-4">
+              <span class="badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7-5.4-4.7 7.1-.7L12 2Z" stroke-linejoin="round"/></svg>
+                Experiencia única
+              </span>
+              <h1 class="slide-title">Una interfaz hecha para <span class="acento-ambar">aprender mejor</span></h1>
+              <p class="slide-text">Diseñada de forma clara y fácil de usar, especialmente pensada para estudiantes.</p>
+              <label for="slide3" class="arrow arrow-prev" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+              <label for="slide1" class="arrow arrow-next" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </label>
+            </article>
+
+          </div>
+
+          <!-- puntos de navegación -->
+          <div class="dots">
+            <label for="slide1" class="dot" id="slide-1" aria-label="Ir al slide 1"></label>
+            <label for="slide2" class="dot" id="slide-2" aria-label="Ir al slide 2"></label>
+            <label for="slide3" class="dot" id="slide-3" aria-label="Ir al slide 3"></label>
+            <label for="slide4" class="dot" id="slide-4" aria-label="Ir al slide 4"></label>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>

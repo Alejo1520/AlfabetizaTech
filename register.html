@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfabetiza Tech — Regístrate</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="site-header">
+    <div class="contenedor">
+      <a href="index.html" class="logo">Alfabetiza Tech</a>
+      <nav class="nav-actions">
+        <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ FORMULARIO DE REGISTRO ============ -->
+  <main class="auth-main">
+    <div class="auth-card">
+
+      <div class="auth-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4" stroke-linecap="round"/></svg>
+      </div>
+      <h1 class="auth-title">Regístrate</h1>
+
+      <form action="#" method="post">
+
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <div class="campo-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo institucional</label>
+          <div class="campo-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <input type="email" id="correo" name="correo" placeholder="nombre@institucion.edu" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="usuario">Usuario</label>
+          <div class="campo-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg>
+            <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
+          </div>
+        </div>
+
+        <!-- Menú desplegable de cargo institucional -->
+        <div class="campo">
+          <label for="cargo">Cargo</label>
+          <div class="campo-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <select id="cargo" name="cargo" required>
+              <option value="" selected disabled>Selecciona tu cargo</option>
+              <option value="coordinador">Coordinador/a</option>
+              <option value="rector">Rector/a</option>
+              <option value="secretaria">Secretario/a</option>
+              <option value="docente">Docente</option>
+              <option value="Etudiante">Estudiante</option>
+              <option value="Otro Cargo">Otro cargo</option>
+            </select>
+          </div>
+ 
+          
+          <div class="campo">
+          <label for="contrasena">Contraseña</label>
+          <div class="campo-control">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke-linecap="round"/></svg>
+            <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required>
+          </div>
+        </div>
+
+          <p class="campo-ayuda">Elige el cargo que ocupas dentro de la institución.</p>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+
+      <p class="auth-enlace-secundario">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </div>
+  </main>
+
+</body>
+</html>
